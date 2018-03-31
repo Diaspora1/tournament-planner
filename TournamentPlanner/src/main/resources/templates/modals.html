@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+
+	<!-- Add or Edit Modal -->	
+	<div th:fragment="teamAddEditModal" class="modal fade" id="teamAddEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    		    
+		    <form action="" method="post">
+		    	  								    	  
+			      <div class="modal-header">
+			        <h4 class="modal-title" id="exampleModalLabel"></h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>	
+			      						      
+			      <div class="modal-body">									        
+			          <div class="form-group">
+			            <input type="hidden" id="teamId" name="teamId" disabled=true />
+			            <label for="name" class="col-form-label">Name:</label>			            
+			            <input type="text" id="name" name="name"/>
+			          </div>								        								        	
+			      </div>							      
+			      
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+			        <input type="submit" class="btn btn-primary" value="save" />
+			      </div>							      
+			</form>
+																																			      
+	    </div>
+	  </div>
+	</div>		
+	
+	
+	
+	<!-- Delete Modal -->	
+	<div th:fragment="teamDeleteModal" class="modal fade" id="teamDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    		    
+		    <form action="" method="post">
+		    	  								    	  
+			      <div class="modal-header">
+			        <h4 class="modal-title" id="exampleModalLabel"></h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>	
+			      						      
+			      <div class="modal-body">									        
+			          <div class="form-group">
+			          	<span>Team wirklich löschen?</span>
+			          </div>								        								        	
+			      </div>							      
+			      
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+			        <input type="submit" class="btn btn-danger" value="Löschen" />
+			      </div>							      
+			</form>
+																																			      
+	    </div>
+	  </div>
+	</div>	
+</html>

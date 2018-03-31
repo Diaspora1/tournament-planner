@@ -1,0 +1,7 @@
+.site_title {
+	font-size: 30px;
+}
+
+.nav.child_menu>li>a, .nav.side-menu>li>a {
+	font-size: 17px;
+}

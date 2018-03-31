@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+	<head th:fragment="head">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Turnier Planer</title>
+		
+		<!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />	
+		<!-- Gentelella -->
+		<link rel="stylesheet" type="text/css" th:href="@{/css/custom.min.css}" />
+		<!-- Datatables -->
+		<link rel="stylesheet" type="text/css" th:href="@{/css/dataTables.bootstrap.min.css}" />
+		
+		<!-- Custom -->
+		<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+	</head>
+
+
+
+    <!-- sidebar menu -->
+	<div th:fragment="sidebar" class="col-md-3 left_col">
+		<div class="left_col scroll-view">
+			<div class="navbar nav_title" style="border: 0;">
+				<a href="home" class="site_title">
+					<i class="fa fa-volleyball-ball"></i>
+					<span>VolleyMatch</span>
+				</a>
+			</div>
+	
+			<div class="clearfix"></div>
+			<br />
+	
+			<div id="sidebar-menu"
+				class="main_menu_side hidden-print main_menu sidebar_fixed">
+				<div class="menu_section">
+					<ul class="nav side-menu">
+						<li><a href="home"><i class="fa fa-trophy fa-lg"></i> Turniere</a></li>
+						<li><a href="teams"><i class="fa fa-users fa-lg"></i> Teams</a></li>
+					</ul>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!-- /sidebar menu -->
+
+
+
+
+
+
+	<!-- footer content -->
+	<footer th:fragment="footer">
+		<div class="pull-right">
+			Tournament Planner by Manuel Birkfeld</a>
+		</div>
+		<div class="clearfix"></div>
+	</footer>
+	<!-- /footer content -->
+
+
+	<div th:fragment="scripts">
+	    <!-- jQuery -->    
+	    <script th:src="@{/js/jquery.min.js}"></script>
+	    <!-- Bootstrap -->
+	    <script th:src="@{/js/bootstrap.min.js}"></script>    
+	    <!-- Datatables -->
+	    <script th:src="@{/js/jquery.dataTables.min.js}"></script>    
+	    <script th:src="@{/js/dataTables.bootstrap.min.js}"></script>    
+	    <!-- Font Awesome -->
+	    <script th:src="@{/js/fontawesome-all.min.js}"></script>
+	    <!-- Gentelella -->
+	    <script th:src="@{/js/custom.min.js}"></script>         
+		<!-- Custom -->
+		<script th:src="@{/js/main.js}"></script>
+	</div>
+</html>
