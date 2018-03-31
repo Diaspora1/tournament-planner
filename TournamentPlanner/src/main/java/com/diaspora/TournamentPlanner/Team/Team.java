@@ -80,5 +80,4 @@ public class Team {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 	
-	
 }
