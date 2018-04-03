@@ -16,7 +16,9 @@ public class Team {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer teamId;
+	
 	public String name;
+	public String memberNames;
 	
 	@Column(updatable = false)
 	public Date createdDate;
@@ -28,9 +30,15 @@ public class Team {
 		super();
 	}
 	
-	public Team(String name) {
+	
+	
+	public Team(Integer teamId, String name, String memberNames, Date createdDate, Date lastModifiedDate) {
 		super();
+		this.teamId = teamId;
 		this.name = name;
+		this.memberNames = memberNames;
+		this.createdDate = createdDate;
+		this.lastModifiedDate = lastModifiedDate;
 	}
 	
 	
@@ -44,8 +52,7 @@ public class Team {
     public void onPreUpdate() {
     	setLastModifiedDate(new Date());
     }	
-		
-	
+    
 	public Integer getTeamId() {
 		return teamId;
 	}
@@ -79,5 +86,15 @@ public class Team {
 	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
 	}
+
+	public String getMemberNames() {
+		return memberNames;
+	}
+
+	public void setMemberNames(String memberNames) {
+		this.memberNames = memberNames;
+	}
+	
+	
 	
 }

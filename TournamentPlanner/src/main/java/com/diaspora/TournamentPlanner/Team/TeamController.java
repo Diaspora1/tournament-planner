@@ -15,14 +15,7 @@ public class TeamController {
 	
 	@Autowired
 	private TeamService teamService;
-		
-	@GetMapping("/home")
-	public String home(Model model) {		
-		//model.addAttribute("teams", teamService.getAllTeams());
-				
-		return "tournaments";
-	}	
-	
+			
 	@GetMapping("/teams")
 	public String getAllTeams(Model model) {	
 		model.addAttribute("teams", teamService.getAllTeams());		

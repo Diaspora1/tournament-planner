@@ -1,0 +1,12 @@
+com\diaspora\TournamentPlanner\Tournament\TournamentDao.class
+com\diaspora\TournamentPlanner\Team\TeamService.class
+com\diaspora\TournamentPlanner\Tournament\TournamentController.class
+com\diaspora\TournamentPlanner\TournamentPlannerApplication.class
+com\diaspora\TournamentPlanner\Team\TeamDao.class
+com\diaspora\TournamentPlanner\Tournament\TournamentService.class
+com\diaspora\TournamentPlanner\Tournament\Tournament.class
+com\diaspora\TournamentPlanner\Tournament\TournamentTeam.class
+com\diaspora\TournamentPlanner\Team\Team.class
+com\diaspora\TournamentPlanner\Team\TeamController.class
+com\diaspora\TournamentPlanner\Tournament\Match.class
+com\diaspora\TournamentPlanner\Tournament\Opponent.class

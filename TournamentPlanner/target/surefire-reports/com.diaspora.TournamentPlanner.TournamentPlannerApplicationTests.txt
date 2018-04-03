@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.diaspora.TournamentPlanner.TournamentPlannerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.95 s - in com.diaspora.TournamentPlanner.TournamentPlannerApplicationTests

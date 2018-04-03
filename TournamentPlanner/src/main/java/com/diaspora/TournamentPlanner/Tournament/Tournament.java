@@ -2,26 +2,53 @@ package com.diaspora.TournamentPlanner.Tournament;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+
 import com.diaspora.TournamentPlanner.Team.Team;
 
-//@Entity
+@Entity
 public class Tournament {
 
-//	@Id
-	public String tournamentId; 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public String tournamentId;
+	
 	public String name;
+	public String location;
+	public Date tournamentDate;
 	
 	public Integer rounds;
 	public Integer courts;
 	public Integer teamsPerTeam;
+	public Integer playerPerTeam;
+	public Integer maxSubsequentRoundsPerTeam;
+	
+	@Column
+    @ElementCollection
 	public List<Team> assignedTeams;
 	
-	private List<TournamentTeam> teams;
+	@Column(updatable = false)
+	public Date createdDate;
+		
+	public Date lastModifiedDate;
+		
 	
+/*	@Column
+    @ElementCollection(targetClass=TournamentTeam.class)
+	private List<TournamentTeam> teams;*/
 	
+	/*
 	//CREATE MATCHES
 	public List<Match> createMatches() {
 		
@@ -93,11 +120,11 @@ public class Tournament {
 		return null;
 	}
 
-
+*/
 	
 	
 	
-	private Team getTeamByTournamentTeam(TournamentTeam tournamentTeam) {
+/*	private Team getTeamByTournamentTeam(TournamentTeam tournamentTeam) {
 		Optional<Team> team = assignedTeams.stream().filter(s -> s.teamId == tournamentTeam.teamId).findFirst();
 		
 		if (team.isPresent()) {
@@ -106,7 +133,7 @@ public class Tournament {
 			return null;
 		}
 	}
-
+*/
 
 
 	public Tournament() {
@@ -114,16 +141,38 @@ public class Tournament {
 	}
 
 
-	public Tournament(String tournamentId, String name, Integer rounds, Integer courts, Integer teamsPerTeam,
-			List<Team> assignedTeams) {
+
+	
+    public Tournament(String tournamentId, String name, String location, Date tournamentDate, Integer rounds,
+			Integer courts, Integer teamsPerTeam, Integer playerPerTeam, Integer maxSubsequentRoundsPerTeam,
+			List<Team> assignedTeams, Date createdDate, Date lastModifiedDate) {
 		super();
 		this.tournamentId = tournamentId;
 		this.name = name;
+		this.location = location;
+		this.tournamentDate = tournamentDate;
 		this.rounds = rounds;
 		this.courts = courts;
 		this.teamsPerTeam = teamsPerTeam;
+		this.playerPerTeam = playerPerTeam;
+		this.maxSubsequentRoundsPerTeam = maxSubsequentRoundsPerTeam;
 		this.assignedTeams = assignedTeams;
+		this.createdDate = createdDate;
+		this.lastModifiedDate = lastModifiedDate;
 	}
+
+
+
+	@PrePersist
+    public void onPrePersist() {
+        setCreatedDate(new Date());
+        setLastModifiedDate(new Date());
+    }
+      
+    @PreUpdate
+    public void onPreUpdate() {
+    	setLastModifiedDate(new Date());
+    }		
 
 
 	public String getTournamentId() {
@@ -134,6 +183,43 @@ public class Tournament {
 	public void setTournamentId(String tournamentId) {
 		this.tournamentId = tournamentId;
 	}
+
+	
+
+	public List<Team> getAssignedTeams() {
+		return assignedTeams;
+	}
+
+
+
+	public void setAssignedTeams(List<Team> assignedTeams) {
+		this.assignedTeams = assignedTeams;
+	}
+
+
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+
 
 
 	public String getName() {
@@ -184,6 +270,56 @@ public class Tournament {
 	public void setTeams(List<Team> assignedTeams) {
 		this.assignedTeams = assignedTeams;
 	}
+
+
+
+	public String getLocation() {
+		return location;
+	}
+
+
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
+
+	public Date getTournamentDate() {
+		return tournamentDate;
+	}
+
+
+
+	public void setTournamentDate(Date tournamentDate) {
+		this.tournamentDate = tournamentDate;
+	}
+
+
+
+	public Integer getPlayerPerTeam() {
+		return playerPerTeam;
+	}
+
+
+
+	public void setPlayerPerTeam(Integer playerPerTeam) {
+		this.playerPerTeam = playerPerTeam;
+	}
+
+
+
+	public Integer getMaxSubsequentRoundsPerTeam() {
+		return maxSubsequentRoundsPerTeam;
+	}
+
+
+
+	public void setMaxSubsequentRoundsPerTeam(Integer maxSubsequentRoundsPerTeam) {
+		this.maxSubsequentRoundsPerTeam = maxSubsequentRoundsPerTeam;
+	}
+	
+	
 	
 		
 }

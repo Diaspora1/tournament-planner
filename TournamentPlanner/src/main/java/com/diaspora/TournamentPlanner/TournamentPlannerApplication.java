@@ -11,4 +11,5 @@ public class TournamentPlannerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TournamentPlannerApplication.class, args);
 	}
+ 
 }
