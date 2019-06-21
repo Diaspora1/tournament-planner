@@ -16,27 +16,27 @@ public class TeamController {
 	@Autowired
 	private TeamService teamService;
 			
-	@GetMapping("/teams")
+	@GetMapping("/volleymatch/teams")
 	public String getAllTeams(Model model) {	
 		model.addAttribute("teams", teamService.getAllTeams());		
 		return "teams";
 	}
 	
-	@PostMapping("/saveTeam")		
+	@PostMapping("/volleymatch/saveTeam")		
 	public String saveTeam(Team team) {
 		
 		teamService.saveTeam(team);
 		
-		return "redirect:/teams";
+		return "redirect:/volleymatch/teams";
 	}	
 		
-	@GetMapping("/team/{teamId}")
+	@GetMapping("/volleymatch/team/{teamId}")
 	@ResponseBody
 	public Optional<Team> getTeam(@PathVariable Integer teamId) {
 		return teamService.getTeam(teamId);
 	}	
 		
-	@PostMapping("/deleteTeam/{teamId}")
+	@PostMapping("/volleymatch/deleteTeam/{teamId}")
 	public String deleteTeam(@PathVariable Integer teamId) {
 		
 		Optional<Team> team = teamService.getTeam(teamId);
@@ -44,6 +44,6 @@ public class TeamController {
 			teamService.deleteTeam(team.get());
 		}
 		
-		return "redirect:/teams";
+		return "redirect:/volleymatch/teams";
 	}		
 }

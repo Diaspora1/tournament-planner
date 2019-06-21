@@ -27,8 +27,7 @@
 						<div class="x_panel">
 						
 							<div class="dt-buttons">
-								<button  id="addTeamButton" class="btn btn-primary" tabindex="0" aria-controls="example">
-								<!-- data-toggle="modal" data-target="#teamModal" -->
+								<button  id="addTournamentButton" class="btn btn-primary" tabindex="0" aria-controls="example">
 									<span>Neues Turnier</span>
 								</button>
 							</div>						
@@ -37,7 +36,7 @@
 							
 							<div class="x_title">
 
-								<table id="teamTable"
+								<table id="tournamentTable"
 									class="table table-striped table-hover table-bordered dataTable no-footer">
 									<thead>
 										<tr>
@@ -56,34 +55,36 @@
 									</thead>
 									<tbody>
 										<tr th:each="tournament : ${tournaments}">
-											<td> 
-												<a th:href="@{${tournament.tournamentId}}" class="btn btn-primary btn-sm editTeamButton">
-													<span class="glyphicon glyphicon-edit" ></span>
+											<td>
+												<a th:href="@{'/volleymatch/tournaments/' + ${tournament.tournamentId}}" class="btn btn-primary btn-sm detailsTournamentButton">
+													<span class="glyphicon glyphicon-list-alt"></span>
+												</a> 
+												<a th:href="@{${tournament.tournamentId}}" class="btn btn-primary btn-sm editTournamentButton">
+													<span class="glyphicon glyphicon-edit"></span>
 												</a>
-												<a th:href="@{${tournament.tournamentId}}" class="btn btn-danger btn-sm deleteTeamButton">
+												<a th:href="@{${tournament.tournamentId}}" class="btn btn-danger btn-sm deleteTournamentButton">
 													<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 												</a>											
 											</td>
 											
 											<td th:text= "${tournament.name}"></td>
 											<td th:text= "${tournament.location}"></td>
-											<td th:text="${#dates.format(tournament.tournamentDate, 'dd-MM-yyyy')}"></td>		
+											<td th:text="${#dates.format(tournament.tournamentDate, 'dd.MM.yyyy')}"></td>		
 											<td th:text= "${tournament.rounds}"></td>
 											<td th:text= "${tournament.courts}"></td>
 											<td th:text= "${tournament.maxSubsequentRoundsPerTeam}"></td>
 											<td th:text= "${tournament.teamsPerTeam}"></td>
 											<td th:text= "${tournament.playerPerTeam}"></td>											
-											<td th:text="${#dates.format(tournament.createdDate, 'dd-MM-yyyy')}"></td>										
-											<td th:text="${#dates.format(tournament.lastModifiedDate, 'dd-MM-yyyy HH:mm')}"></td>
+											<td th:text="${#dates.format(tournament.createdDate, 'dd.MM.yyyy')}"></td>										
+											<td th:text="${#dates.format(tournament.lastModifiedDate, 'dd.MM.yyyy HH:mm')}"></td>
 										</tr>				
 									</tbody>
 								</table>
-							</div>
-							
-							
+							</div>			                 
+														
 							<!-- Modals -->											
-							<div th:replace="modals :: teamAddEditModal"></div>
-							<div th:replace="modals :: teamDeleteModal"></div>								
+							<div th:replace="tournamentModals :: tournamentAddEditModal"></div>
+							<div th:replace="tournamentModals :: tournamentDeleteModal"></div>								
 							
 						</div>
 					</div>

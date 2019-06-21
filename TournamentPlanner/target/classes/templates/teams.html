@@ -29,7 +29,6 @@
 						
 							<div class="dt-buttons">
 								<button  id="addTeamButton" class="btn btn-primary" tabindex="0" aria-controls="example">
-								<!-- data-toggle="modal" data-target="#teamModal" -->
 									<span>Neues Team</span>
 								</button>
 							</div>						
@@ -73,8 +72,8 @@
 							
 							
 							<!-- Modals -->											
-							<div th:replace="modals :: teamAddEditModal"></div>
-							<div th:replace="modals :: teamDeleteModal"></div>								
+							<div th:replace="teamModals :: teamAddEditModal"></div>
+							<div th:replace="teamModals :: teamDeleteModal"></div>								
 							
 						</div>
 					</div>

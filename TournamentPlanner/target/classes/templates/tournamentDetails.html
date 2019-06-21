@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+  <head th:replace="fragments :: head"></head>
+
+  <body class="nav-md">
+  
+    <div class="container body">
+      <div class="main_container">
+      
+
+		<!-- sidebar menu -->
+		<div th:replace="fragments :: sidebar"></div>		
+			
+
+        <!-- page content -->
+		<div class="right_col" role="main" style="min-height: 3752px;">
+			<div class="">
+				<div class="page-title">
+					<div class="title_left">
+						<h3>Turnier</h3>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="x_panel">
+
+						
+    							<span th:text="${tournament.name}" id="name" placeholder="Name"></span>
+								
+							2
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /page content -->
+
+
+		<!-- footer -->
+		<footer th:replace="fragments :: footer"></footer>
+      </div>
+    </div>
+
+	
+	<!-- Scripts -->
+	<div th:replace="fragments :: scripts"></div>	
+	
+  </body>
+</html>

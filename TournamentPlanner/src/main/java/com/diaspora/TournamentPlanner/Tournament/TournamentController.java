@@ -16,32 +16,45 @@ public class TournamentController {
 	@Autowired
 	private TournamentService tournamentService;
 		
-	@GetMapping("/home")
+	@GetMapping({"/volleymatch", "/volleymatch/home"})
 	public String home(Model model) {						
-		return "redirect:/tournaments";
+		return "redirect:/volleymatch/tournaments";
 	}	
 	
-	@GetMapping("/tournaments")
+	@GetMapping("/volleymatch/tournaments")
 	public String getAllTournaments(Model model) {	
 		model.addAttribute("tournaments", tournamentService.getAllTournaments());		
 		return "tournaments";
 	}
 	
-	@PostMapping("/saveTournament")		
+	@GetMapping("/volleymatch/tournaments/{tournamentId}")
+	public String getTournamentDetails(@PathVariable Integer tournamentId, Model model) {
+		
+		Optional<Tournament> tournament = tournamentService.getTournament(tournamentId);
+		if(tournament.isPresent()) {
+			model.addAttribute("tournament", tournament.get()); 
+			return "tournamentDetails";
+		} else {
+			return "redirect:/volleymatch";
+		}
+		
+	}		
+	
+	@PostMapping("/volleymatch/saveTournament")		
 	public String saveTournament(Tournament tournament) {
 		
 		tournamentService.saveTournament(tournament);
 		
-		return "redirect:/tournaments";
+		return "redirect:/volleymatch/tournaments";
 	}	
 		
-	@GetMapping("/tournament/{tournamentId}")
+	@GetMapping("/volleymatch/tournament/{tournamentId}")
 	@ResponseBody
 	public Optional<Tournament> getTournament(@PathVariable Integer tournamentId) {
 		return tournamentService.getTournament(tournamentId);
 	}	
 		
-	@PostMapping("/deleteTournament/{tournamentId}")
+	@PostMapping("/volleymatch/deleteTournament/{tournamentId}")
 	public String deleteTournament(@PathVariable Integer tournamentId) {
 		
 		Optional<Tournament> tournament = tournamentService.getTournament(tournamentId);
@@ -49,6 +62,6 @@ public class TournamentController {
 			tournamentService.deleteTournament(tournament.get());
 		}
 		
-		return "redirect:/tournaments";
+		return "redirect:/volleymatch/tournaments";
 	}		
 }

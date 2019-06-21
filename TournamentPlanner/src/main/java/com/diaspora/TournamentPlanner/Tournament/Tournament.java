@@ -1,10 +1,7 @@
 package com.diaspora.TournamentPlanner.Tournament;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -15,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.diaspora.TournamentPlanner.Team.Team;
 
 @Entity
@@ -22,10 +21,12 @@ public class Tournament {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public String tournamentId;
+	public Integer tournamentId;
 	
 	public String name;
 	public String location;
+	
+	@DateTimeFormat(pattern = "dd.MM.yyyy")
 	public Date tournamentDate;
 	
 	public Integer rounds;
@@ -143,7 +144,7 @@ public class Tournament {
 
 
 	
-    public Tournament(String tournamentId, String name, String location, Date tournamentDate, Integer rounds,
+    public Tournament(Integer tournamentId, String name, String location, Date tournamentDate, Integer rounds,
 			Integer courts, Integer teamsPerTeam, Integer playerPerTeam, Integer maxSubsequentRoundsPerTeam,
 			List<Team> assignedTeams, Date createdDate, Date lastModifiedDate) {
 		super();
@@ -175,13 +176,13 @@ public class Tournament {
     }		
 
 
-	public String getTournamentId() {
+	public Integer getTournamentId() {
 		return tournamentId;
 	}
 
 
 	public void setTournamentId(String tournamentId) {
-		this.tournamentId = tournamentId;
+		this.tournamentId = Integer.parseInt(tournamentId);
 	}
 
 	

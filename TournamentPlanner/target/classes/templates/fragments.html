@@ -9,15 +9,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>Turnier Planer</title>
-		
+		<title>Turnier Planer</title>		
+			
 		<!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />	
 		<!-- Gentelella -->
 		<link rel="stylesheet" type="text/css" th:href="@{/css/custom.min.css}" />
 		<!-- Datatables -->
 		<link rel="stylesheet" type="text/css" th:href="@{/css/dataTables.bootstrap.min.css}" />
-		
+		<!-- DateTimePicker -->
+		<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datetimepicker.min.css}" />
 		<!-- Custom -->
 		<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
 	</head>
@@ -68,11 +69,16 @@
 	<div th:fragment="scripts">
 	    <!-- jQuery -->    
 	    <script th:src="@{/js/jquery.min.js}"></script>
+	    <!-- locale -->
+	    <script th:src="@{/js/moment.min.js}"></script>
+	    <script th:src="@{/js/locale/de.js}"></script>	    	    
 	    <!-- Bootstrap -->
 	    <script th:src="@{/js/bootstrap.min.js}"></script>    
 	    <!-- Datatables -->
 	    <script th:src="@{/js/jquery.dataTables.min.js}"></script>    
 	    <script th:src="@{/js/dataTables.bootstrap.min.js}"></script>    
+	    <!-- DateTimePicker -->	    
+	    <script th:src="@{/js/bootstrap-datetimepicker.min.js}"></script>	    
 	    <!-- Font Awesome -->
 	    <script th:src="@{/js/fontawesome-all.min.js}"></script>
 	    <!-- Gentelella -->
